@@ -11,12 +11,11 @@ public class TimeoutHandler
         {
             if (cancellationToken.IsCancellationRequested)
             {
-                Console.WriteLine("CancellationToken Requested");
+                Console.WriteLine("CancellationToken was cancelled");
                 break;
             }
 
-            Console.WriteLine("starting new batch");
-
+            Console.WriteLine("Starting new batch");
             await Task.WhenAll(action(chunk, cancellationToken));
         }
     }
